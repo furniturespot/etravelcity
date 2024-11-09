@@ -224,15 +224,7 @@
                 </div>
             </div>
 
-            <div class="box" data-aos="fade-up" data-aos-delay="750">
-                <div class="image">
-                    <img src="https://content.paulreiffer.com/wp-content/uploads/2024/03/LondonHouse-Chicago-Rooftop-Downtown-River-Cityscape-City-View-Night-Lights-Paul-Reiffer-Phase-One-Blockbuster-Blue-Wide-London-House@2x.jpg" alt="">
-                </div>
-                <div class="content">
-                    <p>Chicago</p>
-                    <a href="#book-form">book now <i class="fas fa-angle-right"></i></a>
-                </div>
-            </div>
+            
 
             <div class="box" data-aos="fade-up" data-aos-delay="900">
                 <div class="image">
@@ -419,292 +411,142 @@
 
 
     <style>
-        .termsandconditions {
+        .dropdown-section {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.8;
             padding: 40px;
             background-color: #f2f2f2;
             color: #000000;
+            box-shadow: #000000 40px;
             max-width: 900px;
             margin: auto;
-            
             border-radius: 10px;
             background-color: #ffffff;
-        }
-        h1 {
-            color: #000000;
-            text-align: center;
-            font-size: 2.5em;
             margin-bottom: 20px;
+        }
+        .dropdown-header {
+            cursor: pointer;
+            color: #1a73e8;
+            font-size: 2.5em;
+            text-align: center;
             text-transform: uppercase;
             letter-spacing: 2px;
+            margin: 0;
         }
-        h3 {
-            color: #000000;
-            font-size: 1.5em;
+        .dropdown-content {
+            display: none;
             margin-top: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
-        p {
+        .dropdown-content p, .dropdown-content h3, .dropdown-content h4 {
+            color: #000000;
             font-size: 1.2em;
             margin-bottom: 15px;
-            color: #000000;
+        }
+        .dropdown-header:hover {
+            color: #d9296f;
         }
         h4 {
             font-weight: bold;
             font-size: 1.3em;
             color: #d9296f;
+            text-align: center;
         }
-        
     </style>
+</head>
+<body>
 
+    <div class="dropdown-section">
+        <h1 class="dropdown-header" onclick="toggleDropdown('terms')">Terms & Conditions</h1>
+        <div id="terms" class="dropdown-content">
+            <h4>Welcome to E Travel City! By using our website, you agree to the following terms:</h4>
+            <h3>1. Booking & Payments</h3>
+            <p>All bookings are subject to availability and confirmation. Payments must be made in full at the time of booking. Prices may change based on market conditions.</p>
+            
+            <h3>2. Cancellations & Refunds</h3>
+            <p>Cancellations are subject to our policy, and refunds may be issued based on the terms provided during booking. Fees may apply.</p>
+            
+            <h3>3. Travel Documentation</h3>
+            <p>Passengers are responsible for securing valid passports, visas, and other necessary travel documents.</p>
+            
+            <h3>4. Liability</h3>
+            <p>E Travel City acts as an intermediary between travelers and service providers. We are not liable for any losses, damages, or delays caused by third-party service providers.</p>
+            
+            <h3>5. Changes to Terms</h3>
+            <p>We reserve the right to modify these terms at any time. Continued use of the website indicates acceptance of the updated terms.</p>
+            <center><h3>If you have any questions, please contact our support team.</h3></center>
+        </div>
+    </div>
 
-    <section class="termsandconditions" id="termsandconditions">
-    <div class="termsandconditions">
-    
-    <h1>Terms & Conditions</h1>
-    
-    <center><h4> Welcome to E Travel City! By using our website, you agree to the following terms:</h4> </center>
-    
-    <h3>1. Booking & Payments</h3>
-    <p>All bookings are subject to availability and confirmation. Payments must be made in full at the time of booking. Prices may change based on market conditions.</p>
-    
-    <h3>2. Cancellations & Refunds</h3>
-    <p>Cancellations are subject to our policy, and refunds may be issued based on the terms provided during booking. Fees may apply.</p>
-    
-    <h3>3. Travel Documentation</h3>
-    <p>Passengers are responsible for securing valid passports, visas, and other necessary travel documents.</p>
-    
-    <h3>4. Liability</h3>
-    <p>E Travel City acts as an intermediary between travelers and service providers. We are not liable for any losses, damages, or delays caused by third-party service providers.</p>
-    
-    <h3>5. Changes to Terms</h3>
-    <p>We reserve the right to modify these terms at any time. Continued use of the website indicates acceptance of the updated terms.</p>
-    <br>
-   <center> <h3>If you have any questions, please contact our support team.</h3></center>
-</section>
-</div>
-<br>
-<br>
+    <div class="dropdown-section">
+        <h1 class="dropdown-header" onclick="toggleDropdown('privacy')">Privacy Policy</h1>
+        <div id="privacy" class="dropdown-content">
+            <h4>Your privacy is important to us at E Travel City. This policy outlines how we handle your personal data.</h4>
+            
+            <h3>1. Information Collection</h3>
+            <p>We collect personal information such as your name, email, and contact details when you make a booking or subscribe to our newsletter.</p>
+            
+            <h3>2. Use of Information</h3>
+            <p>Your data is used to process bookings, provide customer support, and send updates on promotions or travel information. We ensure your data is used securely and responsibly.</p>
+            
+            <h3>3. Data Sharing</h3>
+            <p>We do not sell your personal information. We may share data with trusted partners only to fulfill your bookings or enhance our services.</p>
+            
+            <h3>4. Security Measures</h3>
+            <p>We implement industry-standard security measures to protect your personal information from unauthorized access.</p>
+            
+            <h3>5. Policy Updates</h3>
+            <p>We may update this Privacy Policy periodically. Continued use of our website indicates your acceptance of the updated terms.</p>
+            <center><h3>If you have any questions or concerns about our Privacy Policy, please contact us.</h3></center>
+        </div>
+    </div>
 
+    <div class="dropdown-section">
+        <h1 class="dropdown-header" onclick="toggleDropdown('refund')">Refund Policy</h1>
+        <div id="refund" class="dropdown-content">
+            <h4>At E Travel City, we strive to provide the best travel experience. Please review our refund policy below:</h4>
+            
+            <h3>1. Eligibility for Refunds</h3>
+            <p>Refunds are available for cancellations made within the specified time frame outlined during booking. Refund eligibility varies based on the type of booking and the service provider's terms.</p>
+            
+            <h3>2. Non-Refundable Services</h3>
+            <p>Certain services, such as last-minute bookings, promotional offers, and non-refundable hotel or flight tickets, may not be eligible for refunds.</p>
+            
+            <h3>3. Refund Processing Time</h3>
+            <p>Approved refunds are processed within 7-14 business days. The exact time may vary based on the payment method used.</p>
+            
+            <h3>4. Contact Us</h3>
+            <p>If you have any questions about your refund status or need assistance, please contact our customer support team.</p>
+            <center><h3>We reserve the right to update this policy at any time. Continued use of our services indicates acceptance of the terms.</h3></center>
+        </div>
+    </div>
 
-<style>
-    .privacypolicy {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.8;
-        padding: 40px;
-        background-color: #f2f2f2;
-        color: #000000;
-        max-width: 900px;
-        margin: auto;
-       
-        border-radius: 10px;
-        background-color: #ffffff;
-    }
-    h1 {
-        color: #1a73e8;
-        text-align: center;
-        font-size: 2.5em;
-        margin-bottom: 20px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-    h3 {
-        color: #000000;
-        font-size: 1.5em;
-        margin-top: 20px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-    p {
-        font-size: 1.2em;
-        margin-bottom: 15px;
-        color: #000000;
-    }
-    
-    h3:hover {
-        color: #1a73e8;
-        cursor: pointer;
-    }
-    h4 {
-            font-weight: bold;
-            font-size: 1.3em;
-            color: #d9296f;
+    <div class="dropdown-section">
+        <h1 class="dropdown-header" onclick="toggleDropdown('disclaimer')">Disclaimer</h1>
+        <div id="disclaimer" class="dropdown-content">
+            <h4>At E Travel City, we strive to provide accurate and up-to-date information. Please read our disclaimer carefully:</h4>
+            
+            <h3>1. General Information</h3>
+            <p>The information on this website is for general purposes only. While we aim to keep it accurate, we make no guarantees of completeness or reliability.</p>
+            
+            <h3>2. Third-Party Services</h3>
+            <p>E Travel City acts as an intermediary between customers and third-party service providers (e.g., airlines, hotels). We are not responsible for changes, cancellations, or issues arising from these providers.</p>
+            
+            <h3>3. Liability Limitation</h3>
+            <p>We are not liable for any losses, damages, or inconveniences caused by using this website or services provided by third parties.</p>
+            
+            <h3>4. Updates</h3>
+            <p>We may update this disclaimer at any time without prior notice. Continued use of our site indicates acceptance of the terms.</p>
+            <center><h3>If you have any concerns, please contact our support team for assistance.</h3></center>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown(id) {
+            const content = document.getElementById(id);
+            content.style.display = (content.style.display === "none" || content.style.display === "") ? "block" : "none";
         }
-</style>
-<section class="privacypolicy" id="privacypolicy">
-<div class="privacypolicy">
-<h1>Privacy Policy</h1>
+    </script>
 
-<center><h4>Your privacy is important to us at E Travel City. This policy outlines how we handle your personal data.</h4></center>
-
-<h3>1. Information Collection</h3>
-<p>We collect personal information such as your name, email, and contact details when you make a booking or subscribe to our newsletter.</p>
-
-<h3>2. Use of Information</h3>
-<p>Your data is used to process bookings, provide customer support, and send updates on promotions or travel information. We ensure your data is used securely and responsibly.</p>
-
-<h3>3. Data Sharing</h3>
-<p>We do not sell your personal information. We may share data with trusted partners only to fulfill your bookings or enhance our services.</p>
-
-<h3>4. Security Measures</h3>
-<p>We implement industry-standard security measures to protect your personal information from unauthorized access.</p>
-
-<h3>5. Policy Updates</h3>
-<p>We may update this Privacy Policy periodically. Continued use of our website indicates your acceptance of the updated terms.</p>
-<br>
-<center> <h3>If you have any questions or concerns about our Privacy Policy, please contact us.</h3>
-
-</div></section>
-<br>
-<br>
-
-
-
-<style>
-    .refundpolicy {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.8;
-        padding: 40px;
-        background-color: #f2f2f2;
-        color: #000000;
-        max-width: 900px;
-        margin: auto;
-        
-        border-radius: 10px;
-        background-color: #ffffff;
-    }
-    h1 {
-        color: #1a73e8;
-        text-align: center;
-        font-size: 2.5em;
-        margin-bottom: 20px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-    h3 {
-        color: #000000;
-        font-size: 1.5em;
-        margin-top: 20px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-    p {
-        font-size: 1.2em;
-        margin-bottom: 15px;
-        color: #000000;
-    }
-    h4 {
-            font-weight: bold;
-            font-size: 1.3em;
-            color: #d9296f;
-        }
-    h3:hover {
-        color: #1a73e8;
-        cursor: pointer;
-    }
-</style>
-
-<section class="refundpolicy" id="refundpolicy">
-    <div class="refundpolicy">
-<h1>Refund Policy</h1>
-
-<center><h4>At E Travel City, we strive to provide the best travel experience. Please review our refund policy below:</h4></center>
-
-<h3>1. Eligibility for Refunds</h3>
-<p>Refunds are available for cancellations made within the specified time frame outlined during booking. Refund eligibility varies based on the type of booking and the service provider's terms.</p>
-
-<h3>2. Non-Refundable Services</h3>
-<p>Certain services, such as last-minute bookings, promotional offers, and non-refundable hotel or flight tickets, may not be eligible for refunds.</p>
-
-<h3>3. Refund Processing Time</h3>
-<p>Approved refunds are processed within 7-14 business days. The exact time may vary based on the payment method used.</p>
-
-<h3>4. Contact Us</h3>
-<p>If you have any questions about your refund status or need assistance, please contact our customer support team.</p>
-<br>
-<center><h3>We reserve the right to update this policy at any time. Continued use of our services indicates acceptance of the terms.</h3></center>
-
-</div></section>
-<br><br>
-
-
-
-
-
-
-
-
-
-
-
-
-<style>
-    .disclaimer {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.8;
-        padding: 40px;
-        background-color: #f2f2f2;
-        color: #000000;
-        max-width: 900px;
-        margin: auto;
-        
-        border-radius: 10px;
-        background-color: #ffffff;
-    }
-    h1 {
-        color: #1a73e8;
-        text-align: center;
-        font-size: 2.5em;
-        margin-bottom: 20px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-    h3 {
-        color: #000000;
-        font-size: 1.5em;
-        margin-top: 20px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-    p {
-        font-size: 1.2em;
-        margin-bottom: 15px;
-        color: #000000;
-    }
-    h4 {
-            font-weight: bold;
-            font-size: 1.3em;
-            color: #d9296f;
-        }
-    h3:hover {
-        color: #1a73e8;
-        cursor: pointer;
-    }
-</style>
-<section class="disclaimer" id="disclaimer">
-    <div class="disclaimer">
-
-<h1>Disclaimer</h1>
-
-<center><h4>At E Travel City, we strive to provide accurate and up-to-date information. Please read our disclaimer carefully:</h4></center>
-
-<h3>1. General Information</h3>
-<p>The information on this website is for general purposes only. While we aim to keep it accurate, we make no guarantees of completeness or reliability.</p>
-
-<h3>2. Third-Party Services</h3>
-<p>E Travel City acts as an intermediary between customers and third-party service providers (e.g., airlines, hotels). We are not responsible for changes, cancellations, or issues arising from these providers.</p>
-
-<h3>3. Liability Limitation</h3>
-<p>We are not liable for any losses, damages, or inconveniences caused by using this website or services provided by third parties.</p>
-
-<h3>4. Updates</h3>
-<p>We may update this disclaimer at any time without prior notice. Continued use of our site indicates acceptance of the terms.</p>
-<br>
-<center><h3>If you have any concerns, please contact our support team for assistance.</h3></center>
-</div></section>
-<br><br>
 
 
 
