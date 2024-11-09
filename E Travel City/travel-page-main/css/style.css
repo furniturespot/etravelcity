@@ -730,7 +730,7 @@ section {
   border: 0.2rem solid #d9296f;
   background: none;
   font-size: 1.5rem;
-  text-transform: none;
+  text-transform: none !important;
   color: #ffffff;
   margin-bottom: 1rem;
   padding: 1.2rem 1.4rem;
