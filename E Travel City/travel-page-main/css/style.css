@@ -644,7 +644,7 @@ section {
 
 
 .footer {
-  background-color: #fff;
+  background-color: #3b3b3b;
   box-shadow: rgb(17 17 17 / 15%) 0px 0.5rem 1rem;
 }
 
@@ -666,13 +666,13 @@ section {
 
 .footer .box-container .box h3 {
   font-size: 2.2rem;
-  color: #000;
+  color: #ffffff;
   padding: 1rem 0;
 }
 
 .footer .box-container .box p {
   font-size: 1.4rem;
-  color: #3d3d3d;
+  color: #ffffff;
   padding: 1rem 0;
   line-height: 2;
 }
@@ -706,7 +706,7 @@ section {
 
 .footer .box-container .box .links {
   font-size: 1.4rem;
-  color: #3d3d3d;
+  color: #ffffff;
   padding: 1rem 0;
   display: block;
 }
@@ -731,13 +731,13 @@ section {
   background: none;
   font-size: 1.5rem;
   text-transform: none;
-  color: #3d3d3d;
+  color: #ffffff;
   margin-bottom: 1rem;
   padding: 1.2rem 1.4rem;
 }
 
 .credit {
-  background-color: #242424;
+  background-color: #292929;
   box-shadow: rgb(17 17 17 / 15%) 0px 0.5rem 1rem;
   text-align: center;
   font-size: 2rem;
