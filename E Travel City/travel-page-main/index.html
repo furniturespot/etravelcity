@@ -434,55 +434,94 @@
 
 
     <style>
-         .dropdown-section {
+        /* Basic styling for links */
+        .links {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.8;
-            padding: 40px;
-            background-color: #f2f2f2;
-            color: #000000;
-            max-width: 900px;
-            margin: auto;
-            border-radius: 10px;
-            background-color: #ffffff;
-            margin-bottom: 20px;
-            /* Adding box shadow */
-            box-shadow: 0px 14px 22px rgba(0, 0, 0, 0.1);
-        }
-        .dropdown-header {
-            cursor: pointer;
             color: #1a73e8;
-            font-size: 2.5em;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 0;
+            text-decoration: none;
+            font-size: 1.5em;
+            margin: 10px;
+            display: inline-block;
         }
-        .dropdown-content {
+        .links i {
+            margin-right: 8px;
+        }
+
+        /* Styling for modal overlay */
+        .modal {
             display: none;
-            margin-top: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
         }
-        .dropdown-content p, .dropdown-content h3, .dropdown-content h4 {
+
+        /* Styling for modal content with max-height and overflow */
+        .modal-content {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh; /* Ensures it doesn’t go beyond the viewport height */
+            overflow-y: auto; /* Allows scrolling if content overflows */
+            position: relative;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #000000;
-            font-size: 1.2em;
-            margin-bottom: 15px;
         }
-        .dropdown-header:hover {
+
+        /* Close button */
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2em;
             color: #d9296f;
+            cursor: pointer;
         }
-        h4 {
-            font-weight: bold;
-            font-size: 1.3em;
+
+        /* Styling for modal headers and text */
+        .modal-content h1 {
+            color: #1a73e8;
+            text-align: center;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .modal-content h4 {
             color: #d9296f;
             text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        .modal-content h3 {
+            color: #000;
+            font-size: 1.7em;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+        .modal-content p {
+            color: #000;
+            font-size: 1.5em;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
-    <section class="termsandconditions" id="termsandconditions">
-    <div class="dropdown-section">
-        <h1 class="dropdown-header" onclick="toggleDropdown('terms')">Terms & Conditions</h1>
-        <div id="terms" class="dropdown-content">
-            <h4>Welcome to E Travel City! By using our website, you agree to the following terms:</h4>
+<!-- Modal for Terms & Conditions -->
+<div id="termsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('termsModal')">&times;</span>
+        <h4>Welcome to E Travel City! By using our website, you agree to the following terms:</h4>
 
 <h3>1. Booking & Payments</h3>
 <p>All bookings made through E Travel City are subject to availability and confirmation. When a booking request is placed, you agree to pay the quoted amount in full at the time of booking unless otherwise specified.</p>
@@ -528,244 +567,233 @@
 
 <center><h3>If you have any questions or concerns regarding these terms, please contact our support team for assistance.</h3></center>
 
-        </div>
-    </div></section>
-    <section class="privacypolicy" id="privacypolicy">
-    <div class="dropdown-section">
-        <h1 class="dropdown-header" onclick="toggleDropdown('privacy')">Privacy Policy</h1>
-        <div id="privacy" class="dropdown-content">
-            <h4>Your privacy is important to us at E Travel City. This policy outlines how we handle your personal data.</h4>
-
-            <h3>1. Information Collection</h3>
-            <p>At E Travel City, we collect certain personal information when you make a booking, subscribe to our newsletter, or interact with our website. This information may include:</p>
-            <ul>
-                <li><strong>Personal Identification:</strong> Name, email address, contact details, and billing information, which are necessary for booking and service-related purposes.</li>
-                <li><strong>Travel Preferences:</strong> Information regarding your travel preferences, such as destination choices, accommodation types, and activity interests, to personalize your experience.</li>
-                <li><strong>Device and Usage Data:</strong> Data on your browsing activity on our website, IP address, device type, and browser details. This helps us analyze and improve user experience.</li>
-            </ul>
-            
-            <h3>2. Use of Information</h3>
-            <p>Your information is primarily used to deliver and enhance our services. This includes:</p>
-            <ul>
-                <li><strong>Booking Processing:</strong> Using personal and billing information to confirm reservations, process payments, and communicate booking details.</li>
-                <li><strong>Customer Support:</strong> Responding to inquiries, providing support, and addressing any service-related issues.</li>
-                <li><strong>Personalized Services:</strong> Using travel preferences and usage data to suggest tailored offers, deals, or destinations aligned with your interests.</li>
-                <li><strong>Marketing & Updates:</strong> With your consent, we may send promotional content, newsletters, and relevant travel information. You can opt out of these communications at any time.</li>
-            </ul>
-            <p>We ensure that your data is handled securely and responsibly, and only authorized personnel have access to your information for legitimate purposes.</p>
-            
-            <h3>3. Data Sharing</h3>
-            <p>We respect your privacy and do not sell your personal information to third parties. However, in certain cases, we may share your information with trusted partners to facilitate bookings and improve our services. Instances of data sharing include:</p>
-            <ul>
-                <li><strong>Service Providers:</strong> Sharing necessary details with airlines, hotels, car rental agencies, or other travel providers to confirm bookings and deliver services.</li>
-                <li><strong>Payment Processors:</strong> Sharing information with secure payment gateways to process transactions efficiently and securely.</li>
-                <li><strong>Business Partners:</strong> Collaborating with trusted third parties who assist in providing and enhancing our services. Any shared information is limited to what is necessary for fulfilling your request.</li>
-            </ul>
-            <p>All partners are required to adhere to strict data protection standards, ensuring your information is handled securely and responsibly.</p>
-            
-            <h3>4. Security Measures</h3>
-            <p>At E Travel City, we implement industry-standard security measures to protect your personal information. Our security practices include:</p>
-            <ul>
-                <li><strong>Data Encryption:</strong> Sensitive information, including payment details, is encrypted during transmission to prevent unauthorized access.</li>
-                <li><strong>Access Control:</strong> Only authorized employees and partners have access to your data, strictly limited to their job functions.</li>
-                <li><strong>Regular Security Audits:</strong> We routinely assess our systems and practices to maintain a high standard of security and promptly address any potential vulnerabilities.</li>
-            </ul>
-            <p>Despite our rigorous security measures, no online data transmission can be guaranteed as entirely secure. We encourage users to take precautionary steps to protect their information, such as using secure passwords and not sharing login credentials.</p>
-            
-            <h3>5. Policy Updates</h3>
-            <p>We may update this Privacy Policy periodically to reflect changes in our practices, technological advancements, or regulatory requirements. In case of significant changes, we will notify you through email or by posting a notice on our website.</p>
-            <p>Continued use of our website after any policy updates indicates your acceptance of the revised terms. We recommend reviewing this Privacy Policy periodically to stay informed of our data protection practices.</p>
-            
-            <center><h3>If you have any questions or concerns about our Privacy Policy, please contact us.</h3></center>
-            
-        </div>
-    </div></section>
-
-
-
-
-    
-    <section class="refundpolicy" id="refundpolicy">
-    <div class="dropdown-section">
-        <h1 class="dropdown-header" onclick="toggleDropdown('refund')">Refund Policy</h1>
-        <div id="refund" class="dropdown-content">
-            <h4>At E Travel City, we strive to provide the best travel experience. Please review our refund policy below:</h4>
-
-            <h3>1. Eligibility for Refunds</h3>
-            <p>Refunds are available for cancellations made within the specified time frame outlined during booking. Refund eligibility may vary depending on:</p>
-            <ul>
-                <li><strong>Type of Booking:</strong> Different types of bookings, such as flights, hotels, and car rentals, have varying refund policies. Each booking category may have distinct terms regarding eligibility.</li>
-                <li><strong>Service Provider’s Terms:</strong> Each service provider, including airlines, hotels, and tour operators, has individual refund policies. Their specific terms will be communicated to you at the time of booking and will determine your eligibility for a refund.</li>
-                <li><strong>Notice Period:</strong> The amount refunded often depends on how far in advance you cancel. Typically, cancellations made well before the booking date may qualify for a partial or full refund, whereas late cancellations may result in reduced refunds or forfeiture.</li>
-            </ul>
-            
-            <h3>2. Non-Refundable Services</h3>
-            <p>Certain services are non-refundable due to specific restrictions. These may include:</p>
-            <ul>
-                <li><strong>Last-Minute Bookings:</strong> Reservations made within a short time frame before departure or check-in may be deemed non-refundable by the provider.</li>
-                <li><strong>Promotional Offers:</strong> Bookings made under special promotions or discount offers are generally non-refundable unless specified otherwise.</li>
-                <li><strong>Non-Refundable Tickets:</strong> Some hotel rooms, flights, and activities are offered at lower rates with a non-refundable condition, as stated during booking. In such cases, the full payment may be forfeited upon cancellation.</li>
-            </ul>
-            
-            <h3>3. Refund Processing Time</h3>
-            <p>For eligible refunds, the following processing details apply:</p>
-            <ul>
-                <li><strong>Processing Period:</strong> Approved refunds are typically processed within 7-14 business days from the approval date. However, this timeline may vary based on the payment method used and individual service provider policies.</li>
-                <li><strong>Bank and Card Delays:</strong> Refunds processed to credit or debit cards may take additional time, subject to the bank or card issuer’s policy. E Travel City is not responsible for delays due to bank processing times.</li>
-                <li><strong>Refund Method:</strong> Refunds will be issued to the original payment method used during booking. If alternative arrangements are necessary, please reach out to customer support for assistance.</li>
-            </ul>
-            
-            <h3>4. Partial Refunds</h3>
-            <p>In some instances, partial refunds may be applicable based on:</p>
-            <ul>
-                <li><strong>Cancellation Timing:</strong> Cancellations made close to the departure date may be eligible for partial refunds, depending on the policies of the specific service provider.</li>
-                <li><strong>Non-Refundable Fees:</strong> Some providers may deduct certain fees, such as administrative or booking fees, before issuing a partial refund.</li>
-            </ul>
-            
-            <h3>5. Refund Exceptions</h3>
-            <p>Refunds may not be provided in cases where:</p>
-            <ul>
-                <li><strong>No-Show:</strong> Failure to appear for a booking without prior cancellation notice typically results in a forfeiture of the paid amount.</li>
-                <li><strong>Invalid Travel Documents:</strong> E Travel City is not liable for refunds in situations where passengers are denied boarding due to incomplete or invalid travel documents.</li>
-            </ul>
-            
-            <h3>6. Contact Us</h3>
-            <p>If you have any questions regarding your refund status, eligibility, or need assistance with the process, please contact our customer support team. Our representatives are available to guide you and provide additional information.</p>
-            
-            <center><h3>We reserve the right to update this policy at any time. Continued use of our services indicates acceptance of the terms.</h3></center>
-            
-        </div>
-    </div></section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    <div class="dropdown-section">
-        <h1 class="dropdown-header" onclick="toggleDropdown('disclaimer')">Disclaimer</h1>
-        <div id="disclaimer" class="dropdown-content">
-            <h4>At E Travel City, we strive to provide accurate and up-to-date information. Please read our disclaimer carefully:</h4>
-
-            <h3>1. General Information</h3>
-            <p>The content on this website is intended for general informational purposes only. While we make every effort to ensure accuracy, we cannot guarantee that all information is complete, current, or reliable. Our travel details, descriptions, and prices are provided as a convenience and are subject to change without notice.</p>
-            <p>Any reliance you place on the information provided on this website is at your own risk. E Travel City disclaims any responsibility for errors or omissions in the content.</p>
-            
-            <h3>2. Third-Party Services</h3>
-            <p>E Travel City serves as an intermediary between customers and third-party service providers, including airlines, hotels, car rentals, and tour operators. Although we select reputable partners, we are not directly responsible for the quality, safety, or reliability of their services.</p>
-            <p>Once a booking is confirmed, the terms, conditions, and refund policies of each provider apply. Any changes, cancellations, or issues, including delays, lost luggage, or overbookings, fall under the responsibility of the service provider. E Travel City will assist with communication but cannot guarantee outcomes beyond our control.</p>
-            
-            <h3>3. Liability Limitation</h3>
-            <p>E Travel City shall not be held liable for any losses, damages, or inconveniences arising from:</p>
-            <ul>
-                <li><strong>Service Failures:</strong> Any problems or service interruptions caused by third-party providers, including flight cancellations, hotel closures, or tour operator disputes.</li>
-                <li><strong>Website Use:</strong> Technical issues, inaccuracies, or viruses that may affect your device while using our website. Although we strive for a secure online experience, we cannot guarantee complete immunity to technical problems.</li>
-                <li><strong>Personal Decisions:</strong> Your decisions, actions, or failure to follow advice provided on this website or by our representatives, which may lead to personal losses or disruptions.</li>
-            </ul>
-            <p>Under no circumstances shall E Travel City or its affiliates be liable for any indirect, incidental, or consequential damages arising from the use of our services or website.</p>
-            
-            <h3>4. External Links</h3>
-            <p>This website may contain links to external sites managed by third parties. These links are provided for convenience, and E Travel City does not endorse or control the content, privacy policies, or practices of these external sites. We encourage users to review the terms and conditions and privacy policies of any third-party websites.</p>
-            <p>E Travel City is not responsible for the content, availability, or reliability of any external sites or resources and shall not be liable for any losses incurred from accessing or using them.</p>
-            
-            <h3>5. Travel Risks</h3>
-            <p>All travel involves some level of risk, including natural disasters, political instability, and health risks. While we provide information and updates to assist travelers, E Travel City does not assume responsibility for any incidents or complications during travel.</p>
-            <p>Travelers are advised to review travel advisories, obtain necessary vaccinations, and follow all recommended safety precautions. E Travel City disclaims any liability for risks associated with travel to certain destinations.</p>
-            
-            <h3>6. Updates</h3>
-            <p>We may update this disclaimer periodically without prior notice. Any changes will take effect immediately upon posting to our website. Your continued use of our website and services following any updates signifies acceptance of the revised terms.</p>
-            <p>We encourage users to regularly review this disclaimer to stay informed of any changes in our policies.</p>
-            
-            <center><h3>If you have any concerns or questions about this disclaimer, please contact our support team for assistance.</h3></center>
-            
-        </div>
+        <!-- Additional Terms & Conditions content here -->
     </div>
+</div>
 
+<!-- Modal for Privacy Policy -->
+<div id="privacyModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('privacyModal')">&times;</span>
+        <h4>Your privacy is important to us at E Travel City. This policy outlines how we handle your personal data.</h4>
 
-
-
-
-
-
-
-
-
-
-    <!-- Cookies Policy Section -->
-    <div class="dropdown-section">
-        <h1 class="dropdown-header" onclick="toggleDropdown('cookies')">Cookies Policy</h1>
-        <div id="cookies" class="dropdown-content">
-            <h4>We use cookies to enhance your experience on our website. Please review our cookies policy below:</h4>
-
-            <h3>1. What Are Cookies?</h3>
-            <p>Cookies are small text files placed on your device by websites you visit. They allow websites to recognize your device, store certain information about your preferences, and improve your browsing experience. Cookies are used across the web to provide tailored experiences, remember login details, and analyze visitor behavior.</p>
-            <p>Each cookie is unique to your browser and may contain anonymous information such as a unique identifier, website name, and some digits and numbers. Cookies cannot access or retrieve data from your device’s files or install malware.</p>
-            
-            <h3>2. How We Use Cookies</h3>
-            <p>At E Travel City, we use cookies to make our website functional and user-friendly. Our primary reasons for using cookies include:</p>
-            <ul>
-                <li><strong>Analyzing Website Traffic:</strong> Cookies help us track how visitors navigate through our website, which pages are popular, and where improvements can be made. This data helps us optimize user experience and enhance the website’s functionality.</li>
-                <li><strong>Personalizing Content:</strong> By remembering your preferences and interests, cookies enable us to provide content that is relevant to you. This includes personalized travel recommendations, based on past site visits or saved preferences.</li>
-                <li><strong>Targeted Advertising:</strong> Cookies allow us to display ads relevant to your interests, including offers and promotions based on browsing behavior. Third-party ad providers may also use cookies to deliver targeted ads.</li>
-                <li><strong>Understanding User Interaction:</strong> Cookies help us see how users interact with different sections of our website, allowing us to improve accessibility, functionality, and layout based on user feedback and behavior patterns.</li>
-            </ul>
-            
-            <h3>3. Types of Cookies We Use</h3>
-            <p>Our website uses different types of cookies for various purposes:</p>
-            <ul>
-                <li><strong>Essential Cookies:</strong> These cookies are necessary for the core functions of our website. They enable basic features, such as secure logins, and ensure that pages load correctly. Without these cookies, parts of the website may not function properly.</li>
-                <li><strong>Analytical Cookies:</strong> These cookies gather information about visitor interactions with our site. By analyzing data on page visits, duration, and other patterns, we can improve our website’s usability and functionality.</li>
-                <li><strong>Functional Cookies:</strong> These cookies remember your choices, such as language preferences or login details, to provide a more personalized experience.</li>
-                <li><strong>Advertising Cookies:</strong> These cookies collect data about your browsing habits to deliver ads relevant to your interests. We may work with third-party providers who set their own cookies to display ads aligned with your preferences.</li>
-                <li><strong>Session Cookies:</strong> These are temporary cookies that expire once you close your browser. They are mainly used for the duration of your visit to ensure smooth navigation across our website.</li>
-                <li><strong>Persistent Cookies:</strong> Persistent cookies remain on your device until they expire or are manually deleted. They help us remember your preferences and settings for future visits.</li>
-            </ul>
-            
-            <h3>4. Managing Your Cookies</h3>
-            <p>You have control over the cookies stored on your device and can manage or delete them through your browser settings. Here’s how you can control cookies:</p>
-            <ul>
-                <li><strong>Browser Settings:</strong> Most browsers allow you to view, delete, or block cookies from specific or all websites. Please refer to your browser’s help section to learn how to adjust these settings.</li>
-                <li><strong>Opting Out of Advertising Cookies:</strong> You can opt out of targeted advertising cookies by visiting the opt-out pages of third-party ad networks or by adjusting your ad preferences directly with providers.</li>
-                <li><strong>Cookie Preferences on Our Website:</strong> We provide options for users to manage their cookie preferences directly on our website, where applicable. You may accept or reject non-essential cookies based on your preferences.</li>
-            </ul>
-            <p>Disabling certain cookies may affect your experience on our site, and some features may not function as intended. Essential cookies, which are necessary for website performance, cannot be disabled.</p>
-            
-            <center><h3>If you have any questions about our use of cookies, please contact us.</h3></center>
-            
-        </div>
+        <h3>1. Information Collection</h3>
+        <p>At E Travel City, we collect certain personal information when you make a booking, subscribe to our newsletter, or interact with our website. This information may include:</p>
+        <ul>
+            <li><strong>Personal Identification:</strong> Name, email address, contact details, and billing information, which are necessary for booking and service-related purposes.</li>
+            <li><strong>Travel Preferences:</strong> Information regarding your travel preferences, such as destination choices, accommodation types, and activity interests, to personalize your experience.</li>
+            <li><strong>Device and Usage Data:</strong> Data on your browsing activity on our website, IP address, device type, and browser details. This helps us analyze and improve user experience.</li>
+        </ul>
+        
+        <h3>2. Use of Information</h3>
+        <p>Your information is primarily used to deliver and enhance our services. This includes:</p>
+        <ul>
+            <li><strong>Booking Processing:</strong> Using personal and billing information to confirm reservations, process payments, and communicate booking details.</li>
+            <li><strong>Customer Support:</strong> Responding to inquiries, providing support, and addressing any service-related issues.</li>
+            <li><strong>Personalized Services:</strong> Using travel preferences and usage data to suggest tailored offers, deals, or destinations aligned with your interests.</li>
+            <li><strong>Marketing & Updates:</strong> With your consent, we may send promotional content, newsletters, and relevant travel information. You can opt out of these communications at any time.</li>
+        </ul>
+        <p>We ensure that your data is handled securely and responsibly, and only authorized personnel have access to your information for legitimate purposes.</p>
+        
+        <h3>3. Data Sharing</h3>
+        <p>We respect your privacy and do not sell your personal information to third parties. However, in certain cases, we may share your information with trusted partners to facilitate bookings and improve our services. Instances of data sharing include:</p>
+        <ul>
+            <li><strong>Service Providers:</strong> Sharing necessary details with airlines, hotels, car rental agencies, or other travel providers to confirm bookings and deliver services.</li>
+            <li><strong>Payment Processors:</strong> Sharing information with secure payment gateways to process transactions efficiently and securely.</li>
+            <li><strong>Business Partners:</strong> Collaborating with trusted third parties who assist in providing and enhancing our services. Any shared information is limited to what is necessary for fulfilling your request.</li>
+        </ul>
+        <p>All partners are required to adhere to strict data protection standards, ensuring your information is handled securely and responsibly.</p>
+        
+        <h3>4. Security Measures</h3>
+        <p>At E Travel City, we implement industry-standard security measures to protect your personal information. Our security practices include:</p>
+        <ul>
+            <li><strong>Data Encryption:</strong> Sensitive information, including payment details, is encrypted during transmission to prevent unauthorized access.</li>
+            <li><strong>Access Control:</strong> Only authorized employees and partners have access to your data, strictly limited to their job functions.</li>
+            <li><strong>Regular Security Audits:</strong> We routinely assess our systems and practices to maintain a high standard of security and promptly address any potential vulnerabilities.</li>
+        </ul>
+        <p>Despite our rigorous security measures, no online data transmission can be guaranteed as entirely secure. We encourage users to take precautionary steps to protect their information, such as using secure passwords and not sharing login credentials.</p>
+        
+        <h3>5. Policy Updates</h3>
+        <p>We may update this Privacy Policy periodically to reflect changes in our practices, technological advancements, or regulatory requirements. In case of significant changes, we will notify you through email or by posting a notice on our website.</p>
+        <p>Continued use of our website after any policy updates indicates your acceptance of the revised terms. We recommend reviewing this Privacy Policy periodically to stay informed of our data protection practices.</p>
+        
+        <center><h3>If you have any questions or concerns about our Privacy Policy, please contact us.</h3></center>
+        
     </div>
+</div>
 
-    <script>
-        function toggleDropdown(id) {
-            const content = document.getElementById(id);
-            content.style.display = (content.style.display === "none" || content.style.display === "") ? "block" : "none";
-        }
-    </script>
+<!-- Modal for Refund Policy -->
+<div id="refundModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('refundModal')">&times;</span>
+        <h4>At E Travel City, we strive to provide the best travel experience. Please review our refund policy below:</h4>
 
+        <h3>1. Eligibility for Refunds</h3>
+        <p>Refunds are available for cancellations made within the specified time frame outlined during booking. Refund eligibility may vary depending on:</p>
+        <ul>
+            <li><strong>Type of Booking:</strong> Different types of bookings, such as flights, hotels, and car rentals, have varying refund policies. Each booking category may have distinct terms regarding eligibility.</li>
+            <li><strong>Service Provider’s Terms:</strong> Each service provider, including airlines, hotels, and tour operators, has individual refund policies. Their specific terms will be communicated to you at the time of booking and will determine your eligibility for a refund.</li>
+            <li><strong>Notice Period:</strong> The amount refunded often depends on how far in advance you cancel. Typically, cancellations made well before the booking date may qualify for a partial or full refund, whereas late cancellations may result in reduced refunds or forfeiture.</li>
+        </ul>
+        
+        <h3>2. Non-Refundable Services</h3>
+        <p>Certain services are non-refundable due to specific restrictions. These may include:</p>
+        <ul>
+            <li><strong>Last-Minute Bookings:</strong> Reservations made within a short time frame before departure or check-in may be deemed non-refundable by the provider.</li>
+            <li><strong>Promotional Offers:</strong> Bookings made under special promotions or discount offers are generally non-refundable unless specified otherwise.</li>
+            <li><strong>Non-Refundable Tickets:</strong> Some hotel rooms, flights, and activities are offered at lower rates with a non-refundable condition, as stated during booking. In such cases, the full payment may be forfeited upon cancellation.</li>
+        </ul>
+        
+        <h3>3. Refund Processing Time</h3>
+        <p>For eligible refunds, the following processing details apply:</p>
+        <ul>
+            <li><strong>Processing Period:</strong> Approved refunds are typically processed within 7-14 business days from the approval date. However, this timeline may vary based on the payment method used and individual service provider policies.</li>
+            <li><strong>Bank and Card Delays:</strong> Refunds processed to credit or debit cards may take additional time, subject to the bank or card issuer’s policy. E Travel City is not responsible for delays due to bank processing times.</li>
+            <li><strong>Refund Method:</strong> Refunds will be issued to the original payment method used during booking. If alternative arrangements are necessary, please reach out to customer support for assistance.</li>
+        </ul>
+        
+        <h3>4. Partial Refunds</h3>
+        <p>In some instances, partial refunds may be applicable based on:</p>
+        <ul>
+            <li><strong>Cancellation Timing:</strong> Cancellations made close to the departure date may be eligible for partial refunds, depending on the policies of the specific service provider.</li>
+            <li><strong>Non-Refundable Fees:</strong> Some providers may deduct certain fees, such as administrative or booking fees, before issuing a partial refund.</li>
+        </ul>
+        
+        <h3>5. Refund Exceptions</h3>
+        <p>Refunds may not be provided in cases where:</p>
+        <ul>
+            <li><strong>No-Show:</strong> Failure to appear for a booking without prior cancellation notice typically results in a forfeiture of the paid amount.</li>
+            <li><strong>Invalid Travel Documents:</strong> E Travel City is not liable for refunds in situations where passengers are denied boarding due to incomplete or invalid travel documents.</li>
+        </ul>
+        
+        <h3>6. Contact Us</h3>
+        <p>If you have any questions regarding your refund status, eligibility, or need assistance with the process, please contact our customer support team. Our representatives are available to guide you and provide additional information.</p>
+        
+        <center><h3>We reserve the right to update this policy at any time. Continued use of our services indicates acceptance of the terms.</h3></center>
+        
+    </div>
+</div>
+
+<!-- Modal for Disclaimer -->
+<div id="disclaimerModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('disclaimerModal')">&times;</span>
+        <h4>At E Travel City, we strive to provide accurate and up-to-date information. Please read our disclaimer carefully:</h4>
+
+<h3>1. General Information</h3>
+<p>The content on this website is intended for general informational purposes only. While we make every effort to ensure accuracy, we cannot guarantee that all information is complete, current, or reliable. Our travel details, descriptions, and prices are provided as a convenience and are subject to change without notice.</p>
+<p>Any reliance you place on the information provided on this website is at your own risk. E Travel City disclaims any responsibility for errors or omissions in the content.</p>
+
+<h3>2. Third-Party Services</h3>
+<p>E Travel City serves as an intermediary between customers and third-party service providers, including airlines, hotels, car rentals, and tour operators. Although we select reputable partners, we are not directly responsible for the quality, safety, or reliability of their services.</p>
+<p>Once a booking is confirmed, the terms, conditions, and refund policies of each provider apply. Any changes, cancellations, or issues, including delays, lost luggage, or overbookings, fall under the responsibility of the service provider. E Travel City will assist with communication but cannot guarantee outcomes beyond our control.</p>
+
+<h3>3. Liability Limitation</h3>
+<p>E Travel City shall not be held liable for any losses, damages, or inconveniences arising from:</p>
+<ul>
+    <li><strong>Service Failures:</strong> Any problems or service interruptions caused by third-party providers, including flight cancellations, hotel closures, or tour operator disputes.</li>
+    <li><strong>Website Use:</strong> Technical issues, inaccuracies, or viruses that may affect your device while using our website. Although we strive for a secure online experience, we cannot guarantee complete immunity to technical problems.</li>
+    <li><strong>Personal Decisions:</strong> Your decisions, actions, or failure to follow advice provided on this website or by our representatives, which may lead to personal losses or disruptions.</li>
+</ul>
+<p>Under no circumstances shall E Travel City or its affiliates be liable for any indirect, incidental, or consequential damages arising from the use of our services or website.</p>
+
+<h3>4. External Links</h3>
+<p>This website may contain links to external sites managed by third parties. These links are provided for convenience, and E Travel City does not endorse or control the content, privacy policies, or practices of these external sites. We encourage users to review the terms and conditions and privacy policies of any third-party websites.</p>
+<p>E Travel City is not responsible for the content, availability, or reliability of any external sites or resources and shall not be liable for any losses incurred from accessing or using them.</p>
+
+<h3>5. Travel Risks</h3>
+<p>All travel involves some level of risk, including natural disasters, political instability, and health risks. While we provide information and updates to assist travelers, E Travel City does not assume responsibility for any incidents or complications during travel.</p>
+<p>Travelers are advised to review travel advisories, obtain necessary vaccinations, and follow all recommended safety precautions. E Travel City disclaims any liability for risks associated with travel to certain destinations.</p>
+
+<h3>6. Updates</h3>
+<p>We may update this disclaimer periodically without prior notice. Any changes will take effect immediately upon posting to our website. Your continued use of our website and services following any updates signifies acceptance of the revised terms.</p>
+<p>We encourage users to regularly review this disclaimer to stay informed of any changes in our policies.</p>
+
+<center><h3>If you have any concerns or questions about this disclaimer, please contact our support team for assistance.</h3></center>
+
+    </div>
+</div>
+
+
+
+
+
+
+<div id="cookiespolicyModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('cookiespolicyModal')">&times;</span>
+        <h4>We use cookies to enhance your experience on our website. Please review our cookies policy below:</h4>
+
+<h3>1. What Are Cookies?</h3>
+<p>Cookies are small text files placed on your device by websites you visit. They allow websites to recognize your device, store certain information about your preferences, and improve your browsing experience. Cookies are used across the web to provide tailored experiences, remember login details, and analyze visitor behavior.</p>
+<p>Each cookie is unique to your browser and may contain anonymous information such as a unique identifier, website name, and some digits and numbers. Cookies cannot access or retrieve data from your device’s files or install malware.</p>
+
+<h3>2. How We Use Cookies</h3>
+<p>At E Travel City, we use cookies to make our website functional and user-friendly. Our primary reasons for using cookies include:</p>
+<ul>
+    <li><strong>Analyzing Website Traffic:</strong> Cookies help us track how visitors navigate through our website, which pages are popular, and where improvements can be made. This data helps us optimize user experience and enhance the website’s functionality.</li>
+    <li><strong>Personalizing Content:</strong> By remembering your preferences and interests, cookies enable us to provide content that is relevant to you. This includes personalized travel recommendations, based on past site visits or saved preferences.</li>
+    <li><strong>Targeted Advertising:</strong> Cookies allow us to display ads relevant to your interests, including offers and promotions based on browsing behavior. Third-party ad providers may also use cookies to deliver targeted ads.</li>
+    <li><strong>Understanding User Interaction:</strong> Cookies help us see how users interact with different sections of our website, allowing us to improve accessibility, functionality, and layout based on user feedback and behavior patterns.</li>
+</ul>
+
+<h3>3. Types of Cookies We Use</h3>
+<p>Our website uses different types of cookies for various purposes:</p>
+<ul>
+    <li><strong>Essential Cookies:</strong> These cookies are necessary for the core functions of our website. They enable basic features, such as secure logins, and ensure that pages load correctly. Without these cookies, parts of the website may not function properly.</li>
+    <li><strong>Analytical Cookies:</strong> These cookies gather information about visitor interactions with our site. By analyzing data on page visits, duration, and other patterns, we can improve our website’s usability and functionality.</li>
+    <li><strong>Functional Cookies:</strong> These cookies remember your choices, such as language preferences or login details, to provide a more personalized experience.</li>
+    <li><strong>Advertising Cookies:</strong> These cookies collect data about your browsing habits to deliver ads relevant to your interests. We may work with third-party providers who set their own cookies to display ads aligned with your preferences.</li>
+    <li><strong>Session Cookies:</strong> These are temporary cookies that expire once you close your browser. They are mainly used for the duration of your visit to ensure smooth navigation across our website.</li>
+    <li><strong>Persistent Cookies:</strong> Persistent cookies remain on your device until they expire or are manually deleted. They help us remember your preferences and settings for future visits.</li>
+</ul>
+
+<h3>4. Managing Your Cookies</h3>
+<p>You have control over the cookies stored on your device and can manage or delete them through your browser settings. Here’s how you can control cookies:</p>
+<ul>
+    <li><strong>Browser Settings:</strong> Most browsers allow you to view, delete, or block cookies from specific or all websites. Please refer to your browser’s help section to learn how to adjust these settings.</li>
+    <li><strong>Opting Out of Advertising Cookies:</strong> You can opt out of targeted advertising cookies by visiting the opt-out pages of third-party ad networks or by adjusting your ad preferences directly with providers.</li>
+    <li><strong>Cookie Preferences on Our Website:</strong> We provide options for users to manage their cookie preferences directly on our website, where applicable. You may accept or reject non-essential cookies based on your preferences.</li>
+</ul>
+<p>Disabling certain cookies may affect your experience on our site, and some features may not function as intended. Essential cookies, which are necessary for website performance, cannot be disabled.</p>
+
+<center><h3>If you have any questions about our use of cookies, please contact us.</h3></center>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- JavaScript for opening and closing modals -->
+<script>
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = "flex";
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+
+    // Close modal when clicking outside the modal content
+    window.onclick = function(event) {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
+</script>
 
 
 
@@ -797,10 +825,13 @@
             <div class="box" data-aos="fade-up" data-aos-delay="300">
                 <h3>quick links</h3>
                 
-                <a href="#termsandconditions" class="links"> <i class="fas fa-arrow-right"></i> Terms & Conditions </a>
-                <a href="#privacypolicy" class="links"> <i class="fas fa-arrow-right"></i> Privacy Policy </a>
-                <a href="#refundpolicy" class="links"> <i class="fas fa-arrow-right"></i> Refund Policy </a>
-                <a href="#disclaimer" class="links"> <i class="fas fa-arrow-right"></i> Disclaimer </a>
+                  <!-- Links for each section -->
+    <a href="#" class="links" onclick="openModal('termsModal')"> <i class="fas fa-arrow-right"></i> Terms & Conditions </a>
+    <a href="#" class="links" onclick="openModal('privacyModal')"> <i class="fas fa-arrow-right"></i> Privacy Policy </a>
+    <a href="#" class="links" onclick="openModal('refundModal')"> <i class="fas fa-arrow-right"></i> Refund Policy </a>
+    <a href="#" class="links" onclick="openModal('disclaimerModal')"> <i class="fas fa-arrow-right"></i> Disclaimer </a>
+    <a href="#" class="links" onclick="openModal('cookiespolicyModal')"> <i class="fas fa-arrow-right"></i> Disclaimer </a>
+ 
             </div>
 
             <div class="box" data-aos="fade-up" data-aos-delay="450">
