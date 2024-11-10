@@ -65,21 +65,39 @@
 
     <section class="book-form" id="book-form">
 
-        <form action="">
+        <form id="bookingForm" onsubmit="sendEmail(); return false;">
             <div data-aos="zoom-in" data-aos-delay="150" class="inputBox">
-                <span>you are planning?</span>
-                <input type="text" placeholder="place name" value="">
+                <span>You are planning?</span>
+                <input type="text" id="placeName" placeholder="Place name" required>
             </div>
             <div data-aos="zoom-in" data-aos-delay="300" class="inputBox">
-                <span>When looking for ?</span>
-                <input type="date" value="">
+                <span>When looking for?</span>
+                <input type="date" id="date" required>
             </div>
             <div data-aos="zoom-in" data-aos-delay="450" class="inputBox">
                 <span>Total members?</span>
-                <input type="number" placeholder="number of travelers" value="">
+                <input type="number" id="totalMembers" placeholder="Number of travelers" required>
             </div>
-            <input data-aos="zoom-in" data-aos-delay="600" type="submit" value="book now" class="btn">
+            <button type="submit" data-aos="zoom-in" data-aos-delay="600" class="btn">
+                <center>Book Now</center>
+            </button>
         </form>
+        
+        <script>
+        function sendEmail() {
+            const placeName = document.getElementById("placeName").value;
+            const date = document.getElementById("date").value;
+            const totalMembers = document.getElementById("totalMembers").value;
+        
+            const subject = `Booking Inquiry for ${placeName}`;
+            const body = `Planning to visit: ${placeName}%0D%0A` +
+                         `Preferred Date: ${date}%0D%0A` +
+                         `Total Members: ${totalMembers}`;
+        
+            window.location.href = `mailto:support@etravelcity.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+        </script>
+        
 
     </section>
 
